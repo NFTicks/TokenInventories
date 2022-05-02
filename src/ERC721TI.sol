@@ -95,7 +95,7 @@ contract ERC721TI is ERC721, TokenInventories {
         while (amount > 0) {
             unchecked {
                 require(
-                    _checkOnERC721Received(
+                    checkOnERC721Received(
                         address(0),
                         to,
                         tokensMinted - amount--,
@@ -185,12 +185,12 @@ contract ERC721TI is ERC721, TokenInventories {
      * @param _data bytes optional data to send along with the call
      * @return bool whether the call correctly returned the expected magic value
      */
-    function _checkOnERC721Received(
+    function checkOnERC721Received(
         address from,
         address to,
         uint256 tokenId,
         bytes memory _data
-    ) private override returns (bool) {
+    ) internal virtual returns (bool) {
         if (to.isContract()) {
             try
                 IERC721Receiver(to).onERC721Received(
