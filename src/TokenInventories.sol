@@ -1,12 +1,16 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.10;
 
 /**
- * @dev A subscription-based inventory system that can be used as a middle layer between owners and tokens.
- * There may be MAX_SUPPLY + 1 inventory owners in total, as the zero-address owns the first inventory.
- * Inventory IDs are packed together with inventory balances to save storage.
- * Implementation inspired by Azuki's batch-minting technique.
+ * @notice Subscription-based inventory system that can be used as an
+ * intermediate layer between owners and their tokens.
+ *
+ * @dev There may be MAX_SUPPLY + 1 inventory owners in total, as the
+ * zero-address owns the first inventory. MAX_SUPPLY is assumed to be less than
+ * type(uint16).max - 1.
+ *
+ * @author https://github.com/nfticks
  */
 contract TokenInventories {
     uint256 constant MAX_SUPPLY = 10101;
@@ -47,7 +51,8 @@ contract TokenInventories {
     }
 
     /**
-     * @dev Decreases an owner's inventory balance and unsubscribes from the inventory when it's empty.
+     * @dev Decreases an owner's inventory balance and unsubscribes from the
+     * inventory when it's empty.
      * @param count must be equal to owner's balance at the most
      */
     function _decreaseBalance(address owner, uint256 count) internal {
@@ -63,8 +68,8 @@ contract TokenInventories {
     }
 
     /**
-     * @dev Returns an owner's inventory ID. If the owner doesn't have an inventory they are assigned a
-     * vacant one.
+     * @dev Returns an owner's inventory ID. If the owner doesn't have an
+     * inventory they are assigned a vacant one.
      */
     function _getOrSubscribeInventory(address owner)
         internal
@@ -76,8 +81,8 @@ contract TokenInventories {
 
     /**
      * @dev Subscribes an owner to a vacant inventory and returns its ID.
-     * The inventory list's length has to be MAX_SUPPLY + 1 before inventories from the vacant inventories
-     * list are assigned.
+     * The inventory list's length has to be MAX_SUPPLY + 1 before inventories
+     * from the vacant inventories list are assigned.
      */
     function _subscribeInventory(address owner) private returns (uint256) {
         if (_inventoryToOwner.length < MAX_SUPPLY_EQ) {
@@ -95,7 +100,8 @@ contract TokenInventories {
     }
 
     /**
-     * @dev Unsubscribes an owner from their inventory and updates the vacant inventories list.
+     * @dev Unsubscribes an owner from their inventory and updates the
+     * vacant inventories list.
      */
     function _unsubscribeInventory(address owner) private {
         uint256 id = _getInventoryId(owner);
