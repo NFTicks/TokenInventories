@@ -10,6 +10,6 @@ OZ's ERC721 implementation is designed to support a wide range of projects. Owne
 
 ### Application
 
-We introduce a subscription-based inventory system that assigns owner addresses to sequential IDs in range [1, MAX_SUPPLY] inclusive, where MAX_SUPPLY < type(uint16).max. The number of required inventories is at-most MAX_SUPPLY + 1, since ID 0 is assigned to the zero-address.
+We introduce a subscription-based inventory system that assigns owner addresses to sequential IDs in range [1, MAX_SUPPLY] inclusive, where MAX_SUPPLY < type(uint16).max - 1. The number of required inventories is at-most MAX_SUPPLY + 1, since ID 0 is assigned to the zero-address.
 
 Using this approach we write an owner's address to storage once. Writing the owner's uint16 ID to storage multiple times is more efficient, since we will now be updating the same uint256 slot.
