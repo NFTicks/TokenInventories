@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.10;
 
-import {ERC721TI} from "./ERC721TI.sol";
+import {ERC721} from "./ERC721.sol";
 import {IERC721Enumerable, IERC165} from "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol";
 
 /**
@@ -10,7 +10,7 @@ import {IERC721Enumerable, IERC165} from "@openzeppelin/contracts/token/ERC721/e
  *
  * @author https://github.com/nfticks
  */
-contract ERC721EnumerableTI is ERC721TI, IERC721Enumerable {
+contract ERC721Enumerable is ERC721, IERC721Enumerable {
     /**
      * @dev See {IERC165-supportsInterface}.
      */
@@ -18,7 +18,7 @@ contract ERC721EnumerableTI is ERC721TI, IERC721Enumerable {
         public
         view
         virtual
-        override(ERC721TI, IERC165)
+        override(ERC721, IERC165)
         returns (bool)
     {
         return

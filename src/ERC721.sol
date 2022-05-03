@@ -14,7 +14,7 @@ import {TokenInventories} from "./TokenInventories.sol";
  *
  * @author https://github.com/nfticks
  */
-contract ERC721TI is Context, ERC165, IERC721, TokenInventories {
+contract ERC721 is Context, ERC165, IERC721, TokenInventories {
     using Address for address;
 
     // Amount of tokens minted
@@ -25,10 +25,6 @@ contract ERC721TI is Context, ERC165, IERC721, TokenInventories {
 
     // Mapping from token ID to inventory
     uint16[MAX_SUPPLY] internal _tokenToInventory;
-
-    //////////////////////////////////////////////////////////////////
-    //                          OVERRIDES
-    /////////////////////////////////////////////////////////////////
 
     // Mapping from token ID to approved address
     mapping(uint256 => address) private _tokenApprovals;
