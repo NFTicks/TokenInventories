@@ -1,4 +1,4 @@
-# ERC721 TokenInventories
+# ERC721 Token Inventories
 
 A modified implementation of OpenZeppelin's ERC721/Enumerable contracts that makes use of an intermediate token inventories layer to resolve ownership, effectively reducing gas expenses for token interactions.
 
