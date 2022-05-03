@@ -2,7 +2,7 @@
 
 A modified implementation of OpenZeppelin's ERC721/Enumerable contracts that makes use of an intermediate token inventories layer to resolve ownership, effectively reducing gas expenses for token interactions.
 
-[Benchmarks](ERC721.md) taken with [@alephao's solidity-benchmarks](https://github.com/alephao/solidity-benchmarks)
+[Benchmarks](ERC721.md) taken with [solidity-benchmarks](https://github.com/alephao/solidity-benchmarks)
 
 ### Motivation
 
