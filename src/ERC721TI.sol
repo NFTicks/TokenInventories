@@ -70,7 +70,7 @@ contract ERC721TI is ERC721, TokenInventories {
         internal
         view
         virtual
-        override
+        override(ERC721)
         returns (bool)
     {
         return tokenId < MAX_SUPPLY && _tokenToInventory[tokenId] != 0;
