@@ -56,7 +56,7 @@ contract ERC721TI is ERC721, TokenInventories {
         public
         view
         virtual
-        override
+        override(ERC721)
         returns (address)
     {
         require(_exists(tokenId), "ERC721: query for nonexistent token");
@@ -70,7 +70,7 @@ contract ERC721TI is ERC721, TokenInventories {
         internal
         view
         virtual
-        override(ERC721)
+        override
         returns (bool)
     {
         return tokenId < MAX_SUPPLY && _tokenToInventory[tokenId] != 0;
