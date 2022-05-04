@@ -6,7 +6,7 @@ import {ERC721} from "./ERC721.sol";
 import {IERC721Enumerable, IERC165} from "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol";
 
 /**
- * @notice ERC721 Enumerable extension that that utilizes token inventories.
+ * @notice ERC721 Enumerable extension that utilizes token inventories.
  *
  * @author https://github.com/nfticks
  */
